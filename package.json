@@ -4,8 +4,11 @@
   "description": "",
   "main": "app.js",
   "dependencies": {
-    "axios": "^0.19.2",
-    "tesseract.js": "^2.1.1"
+    "body-parser": "^1.19.0",
+    "express": "^4.17.1",
+    "tesseract.js": "^2.1.1",
+    "twitter-autohook": "^1.7.1",
+    "twitter-lite": "^0.14.0"
   },
   "devDependencies": {},
   "scripts": {
