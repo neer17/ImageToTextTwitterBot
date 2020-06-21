@@ -2,3 +2,5 @@
 *.env
 .env
 ProjectNotes
+/utils/eng.*
+.vscode

@@ -2,7 +2,8 @@
 const express = require('express')
 const bodyParser = require('body-parser')
 
-const {convertImageToText} = require('./utils/imageToText')
+const { convertImageToText } = require('./utils/imageToText')
+const { tweet } = require('./twitter/bot')
 
 
 const app = express()
@@ -14,15 +15,17 @@ app.get('/', (req, res) => {
     res.send('Home Page')
 })
 
-app.post('/downloadUrl', (req, res) => {
+app.post('/downloadUrl', async (req, res) => {
     const body = req.body
     console.info(body)
 
     //
-    convertImageToText(body.url)
+    const { data: { text } } = await convertImageToText(body.url)
+    console.log('text: ', text)
     res.json({
         "response": "Successfully got the uri"
     })
 })
+
 
 app.listen(port, () => console.log(`App listening at http://localhost:${port}`))
