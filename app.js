@@ -1,31 +1,25 @@
-
-const express = require('express')
+var app = require('express')();
+var http = require('http').createServer(app);
 const bodyParser = require('body-parser')
-
-const { convertImageToText } = require('./utils/imageToText')
-const { tweet } = require('./twitter/bot')
+var io = require('socket.io')(http);
 
 
-const app = express()
+const { tweet } = require('./twitter/bot');
+const { startSocket } = require('./socket.io/socket')
+
+
 const port = 3000
-
 app.use(bodyParser.json())
+
 
 app.get('/', (req, res) => {
     res.send('Home Page')
 })
 
-app.post('/downloadUrl', async (req, res) => {
-    const body = req.body
-    console.info(body)
 
-    //
-    const { data: { text } } = await convertImageToText(body.url)
-    console.log('text: ', text)
-    res.json({
-        "response": "Successfully got the uri"
-    })
+
+http.listen(port, () => {
+    console.log(`App listening at http://localhost:${port}`)
+
+    startSocket(io)
 })
-
-
-app.listen(port, () => console.log(`App listening at http://localhost:${port}`))
