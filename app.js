@@ -16,10 +16,14 @@ app.get('/', (req, res) => {
     res.send('Home Page')
 })
 
+app.get('/restart', (req, res) => {
+    process.exit(1)
+})
+
 
 
 http.listen(port, () => {
-    console.log(`App listening at http://localhost:${port}`)
+    console.log(`listening app at http://localhost:${port}`)
 
     startSocket(io)
 })

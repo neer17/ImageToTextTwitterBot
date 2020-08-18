@@ -5,16 +5,18 @@
   "main": "app.js",
   "dependencies": {
     "body-parser": "^1.19.0",
-    "dotenv": "^8.2.0",
     "express": "^4.17.1",
     "socket.io": "^2.3.0",
     "tesseract.js": "^2.1.1",
     "twitter-autohook": "^1.7.1",
     "twitter-lite": "^0.14.0"
   },
-  "devDependencies": {},
+  "devDependencies": {
+    "nodemon": "^2.0.4",
+    "dotenv": "^8.2.0"
+  },
   "scripts": {
-    "start": "node app.js",
+    "start": "nodemon app.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
