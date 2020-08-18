@@ -9,6 +9,10 @@ exports.convertImageToText = async (id, url, io) => {
     } = await Tesseract.recognize(url, 'eng', {
       logger: m => {
         const { progress, status } = m
+
+        //  restricting the data emission
+        const randomValue = Math.round(Math.random() * 10)
+        if (randomValue in [0, 1, 2, 3, 4] || status === STATUS_COMPLETED)
         io.emit(
           'server response',
           JSON.stringify({

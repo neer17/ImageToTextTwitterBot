@@ -6,7 +6,7 @@ module.exports.twitter = {
 }
 
 module.exports.webhooks = {
-  serverUrl: `${process.env.SERVER_URL}`,
+  serverUrl: `${process.env.BASE_URL}`,
   route: `${process.env.ROUTE}`, //default : '/'
   consumerKey: `${process.env.API_KEY}`,
   consumerSecret: `${process.env.API_SECRET_KEY}`,
