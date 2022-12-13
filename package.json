@@ -5,7 +5,7 @@
   "main": "app.js",
   "dependencies": {
     "body-parser": "^1.19.0",
-    "express": "^4.17.1",
+    "express": "^4.17.3",
     "socket.io": "^2.3.0",
     "tesseract.js": "^2.1.1",
     "twitter-autohook": "^1.7.1",
